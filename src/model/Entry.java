@@ -1,10 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Entity
 public class Entry implements Serializable {
 
     private static final long serialVersionUID = 42L;

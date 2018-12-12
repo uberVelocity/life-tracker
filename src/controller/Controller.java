@@ -21,6 +21,7 @@ public class Controller {
 
         initializeFXMLControllers();
         initializeInterface();
+        initializeButtonActions();
     }
 
     private void initializeFXMLControllers() {
@@ -36,6 +37,10 @@ public class Controller {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void initializeButtonActions() {
+        titleController.setConfirmButtonActions();
     }
 
     public TitleController getTitleController() {

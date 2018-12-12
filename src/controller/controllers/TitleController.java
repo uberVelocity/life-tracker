@@ -13,19 +13,19 @@ public class TitleController {
     private Controller controller;
 
     @FXML
-    Button confirmButton;
+    private Button confirmButton;
 
     @FXML
-    TextField usernameField;
+    private TextField usernameField;
 
     @FXML
-    TextField ageField;
+    private TextField ageField;
 
     public TitleController(Controller controller) {
         this.controller = controller;
     }
 
-    public void setConfirmButtonAction() {
+    public void setConfirmButtonActions() {
         confirmButton.setOnAction(e -> {
             if(confirmButton.getId().equals("confirmButton")) {
                 String username = usernameField.getText();

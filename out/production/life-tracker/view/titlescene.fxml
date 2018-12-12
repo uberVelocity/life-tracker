@@ -16,6 +16,5 @@
       <TextField fx:id="usernameField" layoutX="226.0" layoutY="140.0" promptText="Username" />
       <TextField fx:id="ageField" layoutX="226.0" layoutY="188.0" promptText="Age" />
       <Button fx:id="confirmButton" layoutX="271.0" layoutY="266.0" mnemonicParsing="false" text="Confirm" />
-      <Label layoutX="262.0" layoutY="227.0" text="Type of Entry: " />
    </children>
 </Pane>
