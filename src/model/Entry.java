@@ -27,6 +27,8 @@ public class Entry implements Serializable {
       WORKOUT, CALORIES, WEIGHT, FOOD, SLEEP, TASK, HABIT, DIARY, USER
     }
 
+    public Entry() {}
+
     public Entry(Type type) {
         this.type = type;
     }

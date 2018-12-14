@@ -16,6 +16,9 @@ public class TitleController {
     private Button confirmButton;
 
     @FXML
+    private Button dropButton;
+
+    @FXML
     private TextField usernameField;
 
     @FXML
@@ -30,12 +33,26 @@ public class TitleController {
             if(confirmButton.getId().equals("confirmButton")) {
                 String username = usernameField.getText();
                 int age = Integer.parseInt(ageField.getText());
-                Entry entry = new Entry(Entry.Type.USER);
-                entry.setUser(username, age);
+                controller.getModel().getUser().setUsername(username);
+                controller.getModel().getUser().setAge(age);
                 controller.getModel().getDatabase().openDataSource();
-                controller.getModel().getDatabase().addEntry(entry);
+                controller.getModel().getDatabase().addEntry(controller.getModel().getUser());
                 controller.getModel().getDatabase().closeDataSource();
             }
+        });
+
+        dropButton.setOnAction(e -> {
+            try {
+                if(dropButton.getId().equals("dropButton")) {
+                    controller.getModel().getDatabase().openDataSource();
+                    controller.getModel().getDatabase().dropTables();
+                    controller.getModel().getDatabase().closeDataSource();
+                }
+            }
+            catch (Exception exc) {
+                exc.printStackTrace();
+            }
+
         });
     }
 

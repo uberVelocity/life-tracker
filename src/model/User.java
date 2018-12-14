@@ -1,6 +1,9 @@
 package model;
 
-public class User {
+import javax.persistence.Entity;
+
+@Entity
+public class User extends Entry {
 
     private int age;
 

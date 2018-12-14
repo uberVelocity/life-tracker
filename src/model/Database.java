@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import java.beans.Statement;
 import java.util.Collection;
 import java.util.List;
 
@@ -34,11 +35,19 @@ public class Database {
     public Collection<Entry> getUsers() {
         em.getTransaction().begin();
         TypedQuery<Entry> query =
-                em.createQuery("SELECT e FROM Entry e WHERE e.type =" + "'" + "USER" + "'", Entry.class);
+                em.createQuery("SELECT e FROM Entry e", Entry.class);
         em.getTransaction().commit();
 
         List<Entry> results = query.getResultList();
         return results;
+    }
+
+    public void dropTables() {
+        openDataSource();
+        em.getTransaction().begin();
+        em.createQuery("DELETE FROM Object").executeUpdate();
+        em.getTransaction().commit();
+        closeDataSource();
     }
 
 }
